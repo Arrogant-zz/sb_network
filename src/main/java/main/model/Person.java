@@ -14,20 +14,19 @@ public class Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "first_name")
+    @Column(nullable = false)
     private String firstName;
 
-    @Column(name = "last_name")
+    @Column(nullable = false)
     private String lastName;
 
-    @Column(name = "reg_date")
+    @Column(nullable = false)
     private Instant regDate;
 
-    @Column(name = "birth_date")
     @Temporal(TemporalType.DATE)
-    private Date dateOfBirth;
+    private Date birthDate;
 
-    @Column(name = "e_mail")
+    @Column(name = "e_mail", nullable = false)
     private String email;
 
     @Column(name = "password", nullable = false)
@@ -36,25 +35,22 @@ public class Person {
     @Column(name = "photo", columnDefinition = "text")
     private String photoURL;
 
-    @Column(name = "about", columnDefinition = "text")
+    @Column(columnDefinition = "text")
     private String about;
 
-    @Column(name = "town")
     private String town;
 
-    @Column(name = "confirmation_code")
     private String confirmationCode;
 
-    @Column(name = "is_approved", nullable = false, columnDefinition = "TINYINT")
+    @Column(nullable = false, columnDefinition = "TINYINT")
     private boolean isApproved = false;
 
     @Enumerated(EnumType.STRING)
     @Column(columnDefinition = "enum('ALL', 'FRIENDS')", nullable = false)
     private MessagesPermission messagesPermission;
 
-    @Column(name = "last_online_time")
     private Instant lastOnlineTime;
 
-    @Column(name = "is_blocked", nullable = false, columnDefinition = "TINYINT")
+    @Column(nullable = false, columnDefinition = "TINYINT")
     private boolean isBlocked = false;
 }
