@@ -27,7 +27,7 @@ public class LanguageServiceImpl implements LanguageService {
         Pageable pageable;
 
         if (request.getItemPerPage() > 0) {
-            pageable = new OffsetPageRequest(request.getOffset(), request.getItemPerPage(), Sort.by("id"));
+            pageable = new OffsetPageRequest(request.getOffset(), request.getItemPerPage(), Sort.unsorted());
         } else {
             pageable = Pageable.unpaged();
         }
